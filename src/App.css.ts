@@ -54,7 +54,7 @@ export const appContainer = style({
 export const board = style({
   display: "flex",
   flexDirection: "row",
-  height: "100%",
+  height:"100%"
 });
 
 export const buttons = style({

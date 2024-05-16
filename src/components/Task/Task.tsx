@@ -1,6 +1,16 @@
 import React from 'react'
 
-const Task = () => {
+type TTaskProps = {
+  taskName:string;
+  taskDesc:string;
+  boardId:string;
+  taskId:string;
+  index:number;
+}
+
+
+const Task : React.FC<TTaskProps>
+= ({taskId, taskName, taskDesc, boardId}) => {
   return (
     <div>Task</div>
   )

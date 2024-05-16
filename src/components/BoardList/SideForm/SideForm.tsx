@@ -3,12 +3,10 @@ import { FiCheck } from 'react-icons/fi';
 
 type TSideFormProps = {
  setIsFormOpen : React.Dispatch<React.SetStateAction<boolean>>;
- inputRef: React.RefObject<HTMLInputElement>;
 }
 
 const SideForm : FC<TSideFormProps>= ({
-  setIsFormOpen,
-  inputRef,
+  setIsFormOpen
 }) => {
 
   const [inputText,setInputText] = useState('');
@@ -22,10 +20,11 @@ const SideForm : FC<TSideFormProps>= ({
     setIsFormOpen(false);
   }
   
+
   return (
     <div>
       <input 
-      ref = {inputRef}
+      autoFocus
       type='text'
       placeholder='새로운 게시판 등록하기'
       value={inputText} 

@@ -24,14 +24,11 @@ const BoardList: FC<TBoardListProps> = ({
 }) => {
   const { boardArray } = useTypedSelector((state) => state.boards);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-
+  
   const handleClick = () => {
       setIsFormOpen(!isFormOpen)
-      setTimeout(() => {
-      inputRef.current?.focus();
-      },0);
   };
+
   return (
     <div className={container}>
       <div className={title}>게시판:</div>
@@ -60,7 +57,7 @@ const BoardList: FC<TBoardListProps> = ({
       <div className={addSection}>
         {
           isFormOpen ? (
-            <SideForm inputRef ={inputRef} setIsFormOpen={setIsFormOpen} />
+            <SideForm  setIsFormOpen={setIsFormOpen} />
           ) : (
             <FiPlusCircle
               className={addButton}

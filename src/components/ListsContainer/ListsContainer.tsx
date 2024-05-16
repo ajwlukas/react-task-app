@@ -21,7 +21,7 @@ const ListsContainer : FC<TListsContainerProps> = ({lists, boardId}) => {
           />
         ))
       }
-      <ActionButton />
+      <ActionButton boardId={boardId} listId="" list/>
     </div>
   )
 }

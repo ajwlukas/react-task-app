@@ -1,18 +1,23 @@
 import React from 'react'
+import { container, description, title } from './Task.css';
 
 type TTaskProps = {
+  index:number;
+  taskId:string;
+  boardId:string;
   taskName:string;
   taskDesc:string;
-  boardId:string;
-  taskId:string;
-  index:number;
 }
 
 
 const Task : React.FC<TTaskProps>
-= ({taskId, taskName, taskDesc, boardId}) => {
+= ({index, taskId, boardId, taskName, taskDesc}) => {
   return (
-    <div>Task</div>
+    <div className={container}>
+      <div className={title}>{taskName}</div>
+      <div className={description}>{taskDesc}</div>
+
+    </div>
   )
 }
 

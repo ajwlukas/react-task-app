@@ -59,7 +59,7 @@ const initialState : TBoardState = {
 }
 
 const boardSlice  = createSlice({
-    name:'',
+    name:'board',
     initialState,
     reducers:{
 

@@ -1,3 +1,4 @@
+//App.tsx
 import { useState } from "react";
 import { appContainer, board, buttons } from "./App.css";
 import BoardList from "./components/BoardList/BoardList";

@@ -112,7 +112,8 @@ const boardSlice  = createSlice({
         },
 
         updateTask:(state,{payload}:PayloadAction<TAddTaskAction>)=>{
-            state.boardArray.map(board =>
+        
+            state.boardArray = state.boardArray.map(board =>
                 board.boardId === payload.boardId
                 ?
                 {...board, lists:board.lists.map(
@@ -133,7 +134,7 @@ const boardSlice  = createSlice({
         },
 
         deleteTask:(state,{payload}:PayloadAction<TDeleteTaskAction>)=>{
-            state.boardArray.map(board =>
+            state.boardArray = state.boardArray.map(board =>
             board.boardId === payload.boardId
             ?
             {...board, lists:board.lists.map(

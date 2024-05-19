@@ -9,6 +9,9 @@ type TBoardState = {
 type TAddBoardAction = {
     board: IBoard;
 }
+type TDeleteBoardAction = {
+    boardId: string;
+}
 type TDeleteListAction = {
     boardId: string;
     listId: string;
@@ -90,7 +93,11 @@ const boardSlice  = createSlice({
         addBoard:(state, {payload}:PayloadAction<TAddBoardAction>)=>{
             state.boardArray.push(payload.board)
         },
-        
+
+        deleteBoard:(state,{payload}:PayloadAction<TDeleteBoardAction>)=>{
+            state.boardArray = state.boardArray.filter(board => board.boardId!== payload.boardId);
+        },
+
         addList:(state, {payload}:PayloadAction<TAddListAction>)=>{
             state.boardArray.map(board =>
                 board.boardId === payload.boardId?
@@ -168,5 +175,5 @@ const boardSlice  = createSlice({
     }
 })
 
-export const {addBoard,addList,addTask,updateTask,deleteTask, deleteList, setModalActive} = boardSlice.actions;
+export const {addBoard,addList,addTask,deleteBoard,updateTask,deleteTask, deleteList, setModalActive} = boardSlice.actions;
 export const boardReducer = boardSlice.reducer;//sub reducer를 combine 해서 reducer를 만든다.

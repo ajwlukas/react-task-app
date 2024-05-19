@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, memo, useRef, useState } from "react";
 import { useTypedSelector } from "../../hooks/redux";
 import SideForm from "./SideForm/SideForm";
 import { FiPlusCircle } from "react-icons/fi";
@@ -18,7 +18,7 @@ type TBoardListProps = {
   setActiveBoardId: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const BoardList: FC<TBoardListProps> = ({
+const BoardList: FC<TBoardListProps> = memo(({
   activeBoardId,
   setActiveBoardId,
 }) => {
@@ -69,6 +69,6 @@ const BoardList: FC<TBoardListProps> = ({
       </div>
     </div>
   );
-};
+})
 
 export default BoardList;

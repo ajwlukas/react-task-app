@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { IList } from '../../types';
 import List from '../List/List';
 import ActionButton from '../ActionButton/ActionButton';
@@ -9,7 +9,9 @@ type TListsContainerProps = {
   lists:IList[];
 }
 
-const ListsContainer : FC<TListsContainerProps> = ({lists, boardId}) => {
+const ListsContainer : FC<TListsContainerProps> = memo(({lists, boardId}) => {
+  console.log('ListsContainer rendered');
+
   return (
     <div className={listsContainer}>
       {
@@ -24,6 +26,6 @@ const ListsContainer : FC<TListsContainerProps> = ({lists, boardId}) => {
       <ActionButton boardId={boardId} listId="" list/>
     </div>
   )
-}
+})
 
 export default ListsContainer

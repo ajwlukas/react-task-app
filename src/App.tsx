@@ -50,31 +50,38 @@ function App() {
     }
   }
 
-  const handleDragEnd = (result:any) => {
-    console.log(result);
-    const {destination, source, draggableId} = result;
-    console.log('lists',lists);
+  const handleDragEnd = (result: any) => {
+    try {
+      const { destination, source, draggableId } = result;
 
-    const sourceList = lists.filter(list=>list.listId === source.droppableId)[0];
+      const sourceList = lists.filter(list => list.listId === source.droppableId)[0];
 
-    dispatch(sort({
-      boardIndex:boards.findIndex(board=>board.boardId === getActiveBoard.boardId),
-      droppableIdStart:source.droppableId,
-      droppableIdEnd:destination.droppableId,
-      droppableIndexStart:source.index,
-      droppableIndexEnd:destination.index,
-      draggableId:draggableId
+      dispatch(sort({
+        boardIndex: boards.findIndex(board => board.boardId === getActiveBoard.boardId),
+        droppableIdStart: source.droppableId,
+        droppableIdEnd: destination.droppableId,
+        droppableIndexStart: source.index,
+        droppableIndexEnd: destination.index,
+        draggableId: draggableId
+      }))
+
+      dispatch(addLog({
+        logId: v4(),
+        logMessage: `리스트 ${sourceList.listName}에서 리스트 ${lists.filter(list => list.listId === destination.droppableId)[0].listName}으로 ${sourceList.tasks.filter(task => task.taskId === draggableId)[0].taskName}을 옮김`,
+        logAuthor: "User",
+        logTimestamp: String(Date.now()),
+      }))
+    } catch (err) {
+      if (err instanceof Error) {
+        if (err.message === "Cannot read properties of null (reading 'droppableId')")
+          console.log("리스트로 드래그 해야합니다.")
 
 
-    }))
+      }
 
-    dispatch(addLog({
-      logId: v4(),
-      logMessage: `리스트 ${sourceList.listName}에서 리스트 ${lists.filter(list=>list.listId === destination.droppableId)[0].listName}으로 ${sourceList.tasks.filter(task=>task.taskId === draggableId)[0].taskName}을 옮김`,
-      logAuthor: "User",
-      logTimestamp: String(Date.now()),
-    }))
+    }
   }
+  
   
   return (
     <div className={appContainer}>

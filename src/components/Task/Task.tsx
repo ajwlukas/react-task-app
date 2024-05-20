@@ -5,14 +5,13 @@ import { Draggable } from 'react-beautiful-dnd';
 type TTaskProps = {
   index:number;
   taskId:string;
-  boardId:string;
   taskName:string;
   taskDesc:string;
 }
 
 
 const Task : React.FC<TTaskProps>
-= ({index, taskId, boardId, taskName, taskDesc}) => {
+= ({index, taskId, taskName, taskDesc}) => {
   return (
     <Draggable draggableId={taskId} index={index}>
       {provided =>(

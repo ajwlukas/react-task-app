@@ -1,5 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IBoard, IList, ITask } from "../../types";
+import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {

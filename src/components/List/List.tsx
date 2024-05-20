@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import  { FC } from 'react'
 import { IList, ITask } from '../../types';
 import { GrSubtract } from 'react-icons/gr';
 import Task from '../Task/Task';
@@ -36,7 +36,7 @@ const List :FC<TListProps>= ({
   const handleTaskChange = (
     boardId:string,
      listId:string,
-      taskId:string,
+      
        task:ITask
   ) => {
     dispatch(setModalData({boardId,listId,task}));
@@ -64,13 +64,12 @@ const List :FC<TListProps>= ({
 
       {list.tasks.map((task,index) =>(
         
-        <div onClick={()=>handleTaskChange(boardId,list.listId,task.taskId,task)}
+        <div onClick={()=>handleTaskChange(boardId,list.listId,task)}
         key = {task.taskId}>
         
           <Task
           taskName={task.taskName}
           taskDesc={task.taskDesc}
-          boardId={boardId}
           taskId={task.taskId}
           index={index}
           />

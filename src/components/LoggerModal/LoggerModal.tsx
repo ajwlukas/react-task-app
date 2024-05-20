@@ -19,7 +19,7 @@ const LoggerModal: FC<TLoggerModalProps> = ({ setIsLoggerOpen }) => {
           <FiX className={closeButton} onClick={()=>setIsLoggerOpen(false)}/>
         </div>
         <div className={body}>
-          {logs.map((log,index)=>(
+          {logs.map((log)=>(
             <LogItem key={log.logId} logItem={log}/>
           ))}
           </div>

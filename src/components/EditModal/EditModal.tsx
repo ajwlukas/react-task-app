@@ -1,5 +1,5 @@
 //EditModal.tsx
-import React, { ChangeEvent, useState } from "react";
+import  { ChangeEvent, useState } from "react";
 import { FiX } from "react-icons/fi";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import {
@@ -10,7 +10,7 @@ import {
 import { addLog } from "../../store/slices/loggerSlice";
 import { v4 } from "uuid";
 import {
-  buttons,
+  
   closeButton,
   deleteButton,
   header,

@@ -9,6 +9,7 @@ import LoggerModal from "./components/LoggerModal/LoggerModal";
 import { deleteBoard } from "./store/slices/boardSlice";
 import { v4 } from "uuid";
 import { addLog } from "./store/slices/loggerSlice";
+import { DragDropContext } from "react-beautiful-dnd"
 
 function App() {
   const dispatch = useTypedDispatch();
@@ -49,6 +50,8 @@ function App() {
     }
   }
 
+  const handleDragEnd = () => {
+  }
   
   return (
     <div className={appContainer}>
@@ -61,8 +64,9 @@ function App() {
       />
 
       <div className={board}>
+      <DragDropContext onDragEnd={handleDragEnd}>
         <ListsContainer lists = {lists} boardId={getActiveBoard.boardId}/>
-
+        </DragDropContext>
       </div>
 
       <div className={buttons}>

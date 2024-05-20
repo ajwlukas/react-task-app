@@ -48,14 +48,14 @@ const initialState : TBoardState = {
                         {
 
                             taskId:"task-0",
-                            taskName:"task 0",
+                            taskName:"task 1",
                             taskDesc : "Description",
                             taskOwner : "John"
                         },
                         {
 
                             taskId:"task-1",
-                            taskName:"task 1",
+                            taskName:"task 2",
                             taskDesc : "Description",
                             taskOwner : "Tom"
                         }
@@ -67,15 +67,15 @@ const initialState : TBoardState = {
                     tasks:[
                         {
 
-                            taskId:"task-3",
+                            taskId:"task-2",
                             taskName:"task 3",
                             taskDesc : "Description",
                             taskOwner : "John"
                         },
                         {
 
-                            taskId:"task-1",
-                            taskName:"task 2",
+                            taskId:"task-3",
+                            taskName:"task 4",
                             taskDesc : "Description",
                             taskOwner : "Tom"
                         }

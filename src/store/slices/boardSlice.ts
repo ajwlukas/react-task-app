@@ -188,7 +188,13 @@ const boardSlice = createSlice({
         },
 
         sort: (state, { payload }: PayloadAction<TSortAction>) => {
+            const board = state.boardArray[payload.boardIndex];
 
+            const listStart = board.lists.find(list => list.listId === payload.droppableIdStart);
+            const listEnd = payload.droppableIdStart !== payload.droppableIdEnd ? board.lists.find(list => list.listId === payload.droppableIdEnd) : listStart;
+
+            const card = listStart!.tasks.splice(payload.droppableIndexStart, 1)[0];
+            listEnd!.tasks.splice(payload.droppableIndexEnd, 0, card!);
         }
 
     }
